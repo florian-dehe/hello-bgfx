@@ -10,18 +10,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_subdirectory(bgfx.cmake)
 
 # GLFW from sources
-# add_subdirectory(glfw)
-# set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-# set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-# set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-
-find_package(glfw3 3.3 REQUIRED)
+add_subdirectory(glfw)
 # set(GLFW_USE_WAYLAND TRUE)
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 # set(OpenGL_GL_PREFERENCE GLVND)
 # find_package(OpenGL)
 find_package(Vulkan)
-
 
 # *Our* sources
 set(SRCS main.cpp)
