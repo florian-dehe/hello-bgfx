@@ -8,11 +8,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Main dependencies
 add_subdirectory(bgfx.cmake)
-add_subdirectory(glfw)
+
+# GLFW from sources
+# add_subdirectory(glfw)
+# set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+# set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+# set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+find_package(glfw3 3.3 REQUIRED)
+# set(GLFW_USE_WAYLAND TRUE)
+
+# set(OpenGL_GL_PREFERENCE GLVND)
+# find_package(OpenGL)
 find_package(Vulkan)
 
-# Options for main dependencies
-set(GLFW_USE_WAYLAND TRUE)
 
 # *Our* sources
 set(SRCS main.cpp)
@@ -20,4 +29,3 @@ set(SRCS main.cpp)
 # Building final exec & linking libraries
 add_executable(hello-bgfx ${SRCS})
 target_link_libraries(hello-bgfx bgfx glfw Vulkan::Vulkan)
-
