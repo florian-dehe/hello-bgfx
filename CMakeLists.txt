@@ -25,4 +25,4 @@ set(SRCS main.cpp)
 
 # Building final exec & linking libraries
 add_executable(hello-bgfx ${SRCS})
-target_link_libraries(hello-bgfx bgfx glfw Vulkan::Vulkan)
+target_link_libraries(hello-bgfx bgfx bx bimg glfw Vulkan::Vulkan)
